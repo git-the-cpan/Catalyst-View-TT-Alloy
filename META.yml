@@ -20,4 +20,4 @@ requires:
   Path::Class: 0
   Task::Weaken: 0
   Template::Alloy: 0
-version: 0.00001
+version: 0.00002

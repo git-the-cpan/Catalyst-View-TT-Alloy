@@ -1,4 +1,7 @@
 Revision history for Perl extension Catalyst::View::TT::Alloy.
 
+0.00002  2007-10-15
+        - Fixed pod indexing error with Catalyst-Helper-View-TT-Alloy
+
 0.00001  2007-09-21
         - First release

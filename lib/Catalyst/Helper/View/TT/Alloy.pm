@@ -4,15 +4,15 @@ use strict;
 
 =head1 NAME
 
-Catalyst::Helper::View::TT - Helper for TT Views
+Catalyst::Helper::View::TT::Alloy - Helper for Template::Alloy Views
 
 =head1 SYNOPSIS
 
-    script/create.pl view TT TT
+    script/create.pl view TT::Alloy TT::Alloy
 
 =head1 DESCRIPTION
 
-Helper for TT Views.
+Helper for Template::Alloy Views.
 
 =head2 METHODS
 
@@ -28,12 +28,16 @@ sub mk_compclass {
 
 =head1 SEE ALSO
 
-L<Catalyst::Manual>, L<Catalyst::Test>, L<Catalyst::Request>,
-L<Catalyst::Response>, L<Catalyst::Helper>
+L<Catalyst::View::TT::Alloy>, L<Template::Alloy>, L<Catalyst::Manual>
 
-=head1 AUTHOR
+=head1 AUTHORS
+
+Carl Franks, C<cfranks@cpan.org>
+
+Based on the code of C<Catalyst::Helper::TT::Alloy>, by
 
 Sebastian Riedel, C<sri@oook.de>
+
 Marcus Ramberg, C<mramberg@cpan.org>
 
 =head1 LICENSE

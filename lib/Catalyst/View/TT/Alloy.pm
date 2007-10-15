@@ -10,7 +10,7 @@ use Scalar::Util qw( weaken );
 use Template::Alloy qw( Compile Parse TT );
 use NEXT;
 
-our $VERSION = '0.00001';
+our $VERSION = '0.00002';
 
 __PACKAGE__->mk_accessors('template');
 __PACKAGE__->mk_accessors('include_path');
@@ -402,6 +402,17 @@ The L<Catalyst::Helper::View::TT::Alloy> module is provided to create
 your view module. It is invoked by the C<myapp_create.pl> script:
 
     $ script/myapp_create.pl view TT::Alloy TT::Alloy
+
+=head1 SUPPORT
+
+Catalyst Mailing List:
+
+L<http://lists.rawmode.org/mailman/listinfo/catalyst>
+
+=head1 SUBVERSION REPOSITORY
+
+The publicly viewable subversion code repository is at 
+L<http://html-formfu.googlecode.com/svn/trunk/Catalyst-View-TT-Alloy>.
 
 =head1 SEE ALSO
 
