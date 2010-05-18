@@ -1,5 +1,9 @@
 Revision history for Perl extension Catalyst::View::TT::Alloy.
 
+0.00002  2010-05-18
+        - Got rid of NEXT
+        - Fixed warnings in test suite
+
 0.00002  2007-10-15
         - Fixed pod indexing error with Catalyst-Helper-View-TT-Alloy
 

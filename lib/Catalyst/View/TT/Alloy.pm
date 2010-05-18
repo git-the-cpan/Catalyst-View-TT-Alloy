@@ -8,9 +8,8 @@ use Data::Dump qw( dump );
 use Path::Class;
 use Scalar::Util qw( weaken );
 use Template::Alloy qw( Compile Parse TT );
-use NEXT;
 
-our $VERSION = '0.00002';
+our $VERSION = '0.00003';
 
 __PACKAGE__->mk_accessors('template');
 __PACKAGE__->mk_accessors('include_path');
@@ -99,7 +98,7 @@ sub new {
         $c->log->debug( "TT Config: ", dump($config) );
     }
 
-    my $self = $class->NEXT::new(
+    my $self = $class->next::method(
         $c, { %$config }, 
     );
 
@@ -431,6 +430,10 @@ Marcus Ramberg, C<mramberg@cpan.org>
 Jesse Sheidlower, C<jester@panix.com>
 
 Andy Wardley, C<abw@cpan.org>
+
+=head1 CONTRIBUTORS
+
+Moritz Onken, C<onken@netcubed.de>
 
 =head1 COPYRIGHT
 
