@@ -18,10 +18,10 @@ my %WriteMakefileArgs = (
   "CONFIGURE_REQUIRES" => {
     "ExtUtils::MakeMaker" => 0
   },
-  "DISTNAME" => "Catalyst-View-TT-Alloy",
+  "DISTNAME" => "Catalyst-View-Alloy",
   "EXE_FILES" => [],
   "LICENSE" => "perl",
-  "NAME" => "Catalyst::View::TT::Alloy",
+  "NAME" => "Catalyst::View::Alloy",
   "PREREQ_PM" => {
     "Carp" => 0,
     "Catalyst" => "5.7",
@@ -30,7 +30,7 @@ my %WriteMakefileArgs = (
     "Task::Weaken" => 0,
     "Template::Alloy" => 0
   },
-  "VERSION" => "0.00005",
+  "VERSION" => "0.00004",
   "test" => {
     "TESTS" => "t/*.t"
   }

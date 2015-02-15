@@ -1,8 +1,5 @@
 Revision history for Perl extension Catalyst::View::TT::Alloy.
 
-0.00005  2015-02-16
-        - Changes to use Dist::Zilla for releases
-
 0.00004  2015-02-14
         - Changes to use Dist::Zilla for releases
 

@@ -3,7 +3,7 @@
 use strict;
 
 package Catalyst::View::TT::Alloy;
-$Catalyst::View::TT::Alloy::VERSION = '0.00005';
+$Catalyst::View::TT::Alloy::VERSION = '0.00004';
 use base qw( Catalyst::View );
 
 use Carp qw( croak );
@@ -21,7 +21,7 @@ Catalyst::View::TT::Alloy - Template::Alloy (TT) View Class
 
 =head1 VERSION
 
-version 0.00005
+version 0.00004
 
 =head1 SYNOPSIS
 

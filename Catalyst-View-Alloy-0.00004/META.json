@@ -1,0 +1,60 @@
+{
+   "abstract" : "Template::Alloy (TT) View Class",
+   "author" : [
+      "Dean Hamstead <dean@bytefoundry.com.au>"
+   ],
+   "dynamic_config" : 0,
+   "generated_by" : "Dist::Zilla version 5.029, CPAN::Meta::Converter version 2.142690",
+   "license" : [
+      "perl_5"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "Catalyst-View-Alloy",
+   "prereqs" : {
+      "build" : {
+         "requires" : {
+            "Catalyst::Test" : "0"
+         }
+      },
+      "configure" : {
+         "requires" : {
+            "ExtUtils::MakeMaker" : "0"
+         }
+      },
+      "develop" : {
+         "requires" : {
+            "Pod::Coverage::TrustPod" : "0",
+            "Test::CPAN::Meta" : "0",
+            "Test::EOL" : "0",
+            "Test::Kwalitee" : "1.21",
+            "Test::More" : "0",
+            "Test::Pod" : "1.41",
+            "Test::Pod::Coverage" : "1.08"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "Carp" : "0",
+            "Catalyst" : "5.7",
+            "Class::Accessor" : "0",
+            "Path::Class" : "0",
+            "Task::Weaken" : "0",
+            "Template::Alloy" : "0"
+         }
+      }
+   },
+   "release_status" : "stable",
+   "resources" : {
+      "homepage" : "https://github.com/djzort/Catalyst-View-TT-Alloy",
+      "repository" : {
+         "type" : "git",
+         "url" : "https://github.com/djzort/Catalyst-View-TT-Alloy.git",
+         "web" : "https://github.com/djzort/Catalyst-View-TT-Alloy"
+      }
+   },
+   "version" : "0.00004"
+}
+
