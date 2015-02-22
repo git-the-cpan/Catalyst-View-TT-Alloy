@@ -2,14 +2,14 @@
 
 use strict;
 package Catalyst::Helper::View::TT::Alloy;
-$Catalyst::Helper::View::TT::Alloy::VERSION = '0.00005';
+$Catalyst::Helper::View::TT::Alloy::VERSION = '0.00005_01';
 =head1 NAME
 
 Catalyst::Helper::View::TT::Alloy - Helper for Template::Alloy Views
 
 =head1 VERSION
 
-version 0.00005
+version 0.00005_01
 
 =head1 SYNOPSIS
 
@@ -60,7 +60,7 @@ __compclass__
 package [% class %];
 
 use strict;
-use base 'Catalyst::View::TT::Alloy';
+use parent 'Catalyst::View::TT::Alloy';
 
 1;
 

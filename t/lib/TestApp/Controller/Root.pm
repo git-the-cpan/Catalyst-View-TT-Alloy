@@ -1,5 +1,5 @@
 package TestApp::Controller::Root;
-use base 'Catalyst::Controller';
+use parent 'Catalyst::Controller';
 
 __PACKAGE__->config( namespace => '' );
 
@@ -61,7 +61,7 @@ sub test_msg : Local {
 sub end : Private {
     my ($self, $c) = @_;
 
-    return 1 if $c->response->status =~ /^3\d\d$/;
+    return 1 if $c->response->status =~ m/^3\d\d$/;
     return 1 if $c->response->body;
 
     my $view = 'View::TT::' . ($c->request->param('view') || $c->config->{default_view});

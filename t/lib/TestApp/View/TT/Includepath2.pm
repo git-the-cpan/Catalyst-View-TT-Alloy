@@ -3,7 +3,7 @@ package TestApp::View::TT::Includepath2;
 use FindBin;
 use Path::Class;
 use strict;
-use base 'Catalyst::View::TT::Alloy';
+use parent 'Catalyst::View::TT::Alloy';
 
 my $includepath = dir($FindBin::Bin, '/lib/TestApp/root/test_include_path');
 __PACKAGE__->config(

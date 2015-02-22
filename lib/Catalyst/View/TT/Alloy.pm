@@ -1,15 +1,16 @@
 #!/bin/false
 
 use strict;
+use warnings;
 
 package Catalyst::View::TT::Alloy;
-$Catalyst::View::TT::Alloy::VERSION = '0.00005';
-use base qw( Catalyst::View );
+$Catalyst::View::TT::Alloy::VERSION = '0.00005_01';
+use parent qw( Catalyst::View );
 
 use Carp qw( croak );
 use Data::Dump qw( dump );
 use Path::Class;
-use Scalar::Util qw( weaken );
+use Scalar::Util qw( weaken blessed );
 use Template::Alloy qw( Compile Parse TT );
 
 __PACKAGE__->mk_accessors('template');
@@ -21,7 +22,7 @@ Catalyst::View::TT::Alloy - Template::Alloy (TT) View Class
 
 =head1 VERSION
 
-version 0.00005
+version 0.00005_01
 
 =head1 SYNOPSIS
 
@@ -87,10 +88,9 @@ sub new {
         %{ $class->config },
         %{$arguments},
     };
-    if ( ! (ref $config->{INCLUDE_PATH} eq 'ARRAY') ) {
+    if ( !( ref $config->{INCLUDE_PATH} eq 'ARRAY' ) ) {
         my $delim = $config->{DELIMITER};
-        my @include_path
-            = _coerce_paths( $config->{INCLUDE_PATH}, $delim );
+        my @include_path = _coerce_paths( $config->{INCLUDE_PATH}, $delim );
         if ( !@include_path ) {
             my $root = $c->config->{root};
             my $base = Path::Class::dir( $root, 'base' );
@@ -103,12 +103,10 @@ sub new {
         $c->log->debug( "TT Config: ", dump($config) );
     }
 
-    my $self = $class->next::method(
-        $c, { %$config },
-    );
+    my $self = $class->next::method( $c, {%$config}, );
 
     # Set base include paths. Local'd in render if needed
-    $self->include_path($config->{INCLUDE_PATH});
+    $self->include_path( $config->{INCLUDE_PATH} );
 
     $self->config($config);
 
@@ -119,23 +117,31 @@ sub process {
     my ( $self, $c ) = @_;
 
     my $template = $c->stash->{template}
-      ||  $c->action . $self->config->{TEMPLATE_EXTENSION};
+      || $c->action . $self->config->{TEMPLATE_EXTENSION};
 
-    unless (defined $template) {
+    unless ( defined $template ) {
         $c->log->debug('No template specified for rendering') if $c->debug;
-        return 0;
+        return;
     }
 
     my $output;
-    eval {
-        $output = $self->render($c, $template);
-    };
+    eval { $output = $self->render( $c, $template ); };
 
-    if ($@) {
-        my $error = qq/Couldn't render template "$template"/;
-        $c->log->error($@);
-        $c->error($@);
-        return 0;
+    if ( my $error = $@ ) {
+        my $error_string = qq/Couldn't render template "$template"/;
+
+        #Mostly copied from Catalyst::View::TT's error handling
+        #Log::Dispatch barfs on ARRAY REF errors
+        if ( blessed($error) && $error->isa('Template::Alloy::Exception') ) {
+            $error = "$error_string: $error";
+            $c->log->error($error);
+            $c->error($error);
+        }
+        else {
+            $c->log->error($error);
+            $c->error($error);
+            return;
+        }
     }
 
     unless ( $c->response->content_type ) {
@@ -148,7 +154,7 @@ sub process {
 }
 
 sub render {
-    my ($self, $c, $template, $args) = @_;
+    my ( $self, $c, $template, $args ) = @_;
 
     $c->log->debug(qq/Rendering template "$template"/) if $c->debug;
 
@@ -156,13 +162,13 @@ sub render {
     $config->{INCLUDE_PATH} = $self->include_path;
 
     my $vars = {
-        (ref $args eq 'HASH' ? %$args : %{ $c->stash() }),
+        ( ref $args eq 'HASH' ? %$args : %{ $c->stash() } ),
         $self->_template_vars($c)
     };
 
     local $config->{INCLUDE_PATH} =
-        [ @{ $vars->{additional_template_paths} }, @{ $config->{INCLUDE_PATH} } ]
-        if ref $vars->{additional_template_paths};
+      [ @{ $vars->{additional_template_paths} }, @{ $config->{INCLUDE_PATH} } ]
+      if ref $vars->{additional_template_paths};
 
     # until Template::Alloy either gives us a public method to change
     # INCLUDE_PATH, or supports a coderef there, we need to create a
@@ -189,9 +195,8 @@ sub _template_vars {
         c    => $c,
         base => $c->req->base,
         name => $c->config->{name}
-      )
+      );
 }
-
 
 1;
 

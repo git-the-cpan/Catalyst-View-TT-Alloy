@@ -1,7 +1,7 @@
 package TestApp::View::TT::Pkgconfig;
 
 use strict;
-use base 'Catalyst::View::TT::Alloy';
+use parent 'Catalyst::View::TT::Alloy';
 
 __PACKAGE__->config(
     PRE_CHOMP          => 1,
