@@ -1,5 +1,8 @@
 Revision history for Perl extension Catalyst::View::TT::Alloy.
 
+0.00007  2015-03-30
+        - Adjustments to dist.ini, thanks to E. Choroba via GitHub
+
 0.00006  2015-02-24
         - Nothing from CPANTS. So releasing as proper version.
 

@@ -14,11 +14,6 @@
    },
    "name" : "Catalyst-View-TT-Alloy",
    "prereqs" : {
-      "build" : {
-         "requires" : {
-            "Catalyst::Test" : "0"
-         }
-      },
       "configure" : {
          "requires" : {
             "ExtUtils::MakeMaker" : "0"
@@ -48,6 +43,11 @@
             "strict" : "0",
             "warnings" : "0"
          }
+      },
+      "test" : {
+         "requires" : {
+            "Catalyst::Test" : "0"
+         }
       }
    },
    "release_status" : "stable",
@@ -59,6 +59,6 @@
          "web" : "https://github.com/djzort/Catalyst-View-TT-Alloy"
       }
    },
-   "version" : "0.00006"
+   "version" : "0.00007"
 }
 

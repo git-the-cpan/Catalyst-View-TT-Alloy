@@ -9,7 +9,7 @@ requires "perl" => "5.006";
 requires "strict" => "0";
 requires "warnings" => "0";
 
-on 'build' => sub {
+on 'test' => sub {
   requires "Catalyst::Test" => "0";
 };
 

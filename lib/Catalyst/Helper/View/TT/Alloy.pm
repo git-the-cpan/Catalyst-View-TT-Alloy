@@ -2,14 +2,14 @@
 
 use strict;
 package Catalyst::Helper::View::TT::Alloy;
-$Catalyst::Helper::View::TT::Alloy::VERSION = '0.00006';
+$Catalyst::Helper::View::TT::Alloy::VERSION = '0.00007';
 =head1 NAME
 
 Catalyst::Helper::View::TT::Alloy - Helper for Template::Alloy Views
 
 =head1 VERSION
 
-version 0.00006
+version 0.00007
 
 =head1 SYNOPSIS
 

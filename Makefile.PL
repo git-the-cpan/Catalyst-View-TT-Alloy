@@ -12,9 +12,6 @@ use ExtUtils::MakeMaker;
 my %WriteMakefileArgs = (
   "ABSTRACT" => "Template::Alloy (TT) View Class",
   "AUTHOR" => "Dean Hamstead <dean\@bytefoundry.com.au>",
-  "BUILD_REQUIRES" => {
-    "Catalyst::Test" => 0
-  },
   "CONFIGURE_REQUIRES" => {
     "ExtUtils::MakeMaker" => 0
   },
@@ -34,7 +31,10 @@ my %WriteMakefileArgs = (
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "0.00006",
+  "TEST_REQUIRES" => {
+    "Catalyst::Test" => 0
+  },
+  "VERSION" => "0.00007",
   "test" => {
     "TESTS" => "t/*.t"
   }
